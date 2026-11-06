@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ТрудПраво — Личный кабинет</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <style>
+    .cabinet-layout {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .cabinet-main {
+      flex: 1;
+      padding: 32px 40px;
+      overflow-y: auto;
+      background: var(--bg);
+    }
+    .page-title {
+      font-family: 'PT Serif', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+    .page-subtitle {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 24px;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+    }
+    .stat-value {
+      font-family: 'PT Serif', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .card-title {
+      font-family: 'PT Serif', serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .profile-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .profile-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .profile-name {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .profile-email {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .info-item label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+    .info-item span {
+      font-size: 14px;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cabinet-layout">
+    <!-- Сайдбар кабинета -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="/" class="logo">
+          <div class="logo-icon">⚖️</div>
+          <div class="logo-text">Труд<span>Право</span></div>
+        </a>
+      </div>
+
+      <div style="padding: 20px;">
+        <a href="/" class="new-chat-btn" style="text-decoration: none; margin: 0; justify-content: center;">
+          ← Вернуться в чат
+        </a>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="/" class="nav-link">
+          <span>🚪</span> Выйти на главную
+        </a>
+      </div>
+    </aside>
+
+    <!-- Основной контент -->
+    <main class="cabinet-main">
+      <h1 class="page-title">Личный кабинет</h1>
+      <p class="page-subtitle">Профиль пользователя и статистика работы с системой</p>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-value">1530</div>
+          <div class="stat-label">Статей и пунктов ТК в индексе</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">&lt; 2 сек</div>
+          <div class="stat-label">Скорость RAG-ответа</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Соответствие редакции 2026 г.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Профиль консультанта</div>
+        <div class="profile-row">
+          <div class="profile-avatar">ТП</div>
+          <div>
+            <div class="profile-name">Пользователь системы ТрудПраво</div>
+            <div class="profile-email">Демо-доступ (MVP)</div>
+          </div>
+        </div>
+        <div class="info-grid">
+          <div class="info-item">
+            <label>База законодательства</label>
+            <span>Трудовой кодекс РК (№ 414-V ЗРК)</span>
+          </div>
+          <div class="info-item">
+            <label>LLM модель генерации</label>
+            <span>Groq LLaMA 3.3 70B</span>
+          </div>
+          <div class="info-item">
+            <label>Векторный движок</label>
+            <span>ChromaDB (sentence-transformers)</span>
+          </div>
+          <div class="info-item">
+            <label>База данных</label>
+            <span>SQLite (диалоги и цитаты)</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

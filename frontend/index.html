@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ТрудПраво — Юридический ИИ-помощник по ТК РК</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Сайдбар -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a href="/" class="logo">
+        <div class="logo-icon">⚖️</div>
+        <div class="logo-text">Труд<span>Право</span></div>
+      </a>
+    </div>
+
+    <button id="new-chat-btn" class="new-chat-btn">
+      <span>➕</span> Новый диалог
+    </button>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">История диалогов</div>
+      <div id="history-list" class="chat-history-list">
+        <!-- Заполняется динамически -->
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="/cabinet" class="nav-link">
+        <span>👤</span> Личный кабинет
+      </a>
+      <a href="/login" class="nav-link">
+        <span>🚪</span> Войти в аккаунт
+      </a>
+    </div>
+  </aside>
+
+  <!-- Основная зона чата -->
+  <main class="chat-container">
+    <header class="chat-header">
+      <div>
+        <h1 class="chat-header-title">Консультация по Трудовому кодексу РК</h1>
+        <div class="chat-header-sub">Ответы формируются строго на основе Закона РК от 23.11.2015 № 414-V</div>
+      </div>
+      <div style="font-size: 12px; color: var(--text-light); background: #EFF6FF; padding: 4px 10px; border-radius: 6px; border: 1px solid #BFDBFE;">
+        🟢 Система активна
+      </div>
+    </header>
+
+    <div id="messages-area" class="messages-area">
+      <!-- Экран приветствия / пустой чат -->
+      <div id="welcome-screen" class="welcome-screen">
+        <div class="welcome-icon">⚖️</div>
+        <h2 class="welcome-title">Чем я могу вам помочь?</h2>
+        <p class="welcome-desc">
+          Задайте любой вопрос по трудовому праву Казахстана. Я найду точную статью Трудового кодекса и подготовлю разъяснение с прямыми ссылками.
+        </p>
+
+        <div class="chips-grid">
+          <div class="topic-chip" data-query="Какой максимальный испытательный срок при приеме на работу?">
+            <span class="chip-icon">⏳</span>
+            <span>Испытательный срок (ст. 36)</span>
+          </div>
+          <div class="topic-chip" data-query="Порядок увольнения по инициативе работодателя и работника">
+            <span class="chip-icon">📄</span>
+            <span>Расторжение договора (ст. 49-52)</span>
+          </div>
+          <div class="topic-chip" data-query="Сколько дней оплачиваемого ежегодного отпуска положено?">
+            <span class="chip-icon">🏖️</span>
+            <span>Ежегодный отпуск (ст. 87-88)</span>
+          </div>
+          <div class="topic-chip" data-query="Какая нормальная продолжительность рабочего времени в неделю?">
+            <span class="chip-icon">⏰</span>
+            <span>Рабочее время (ст. 68)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Область ввода -->
+    <div class="input-area">
+      <div class="input-box">
+        <textarea id="chat-input" placeholder="Напишите ваш вопрос (например: Могут ли уволить на больничном?)..." rows="1"></textarea>
+        <button id="send-btn" class="send-btn" title="Отправить">
+          ➤
+        </button>
+      </div>
+      <div class="disclaimer">
+        Ответ ИИ носит информационный характер и основан на действующей редакции ТК РК.
+      </div>
+    </div>
+  </main>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
